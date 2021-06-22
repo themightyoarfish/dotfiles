@@ -8,4 +8,4 @@ if !exists('*Black_format')
     endfunc
 endif
 
-nnoremap <buffer> <C-f> :call Black_format()<CR>
+nnoremap <buffer> <C-f> :call Black_format()<CR> :redraw!<CR>

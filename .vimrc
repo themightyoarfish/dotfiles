@@ -73,6 +73,7 @@ if v:version >= 800
    " autocmd VimEnter * NERDTree | wincmd p
    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")  && b:NERDTree.isTabTree()) | q | endif
    let NERDTreeQuitOnOpen=0
+   call dein#add('ctrlpvim/ctrlp.vim')
 
    call dein#add('tpope/vim-surround')
    call dein#add('godlygeek/tabular')
@@ -122,7 +123,7 @@ if v:version >= 800
 
    call dein#add('lifepillar/vim-solarized8')
    colo solarized8
-   set bg=dark
+   set bg=light
 
    " call dein#add("skielbasa/vim-material-monokai")
    " set background=dark
@@ -157,10 +158,11 @@ if v:version >= 800
         call dein#install()
     endif
 
-    "End dein Scripts-------------------------
 else
     echo "dein requires vim > 8, please upgrade and :call dein#update() manually."
 endif
+
+" call dein#recache_runtimepath()
 
 " highlight incremental matches while typing (you still need to press enter to get
 " there)
@@ -364,3 +366,5 @@ set cursorline
 
 " keep current line vertically centered
 set scrolloff=9999999
+set list
+set listchars=tab:>-
