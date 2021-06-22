@@ -2,7 +2,7 @@
 
 export PROJDIR=/Users/rasmus/Documents/Psiori/Projects/AutoCrane/autocrane-core
 
-if [[ `hostname` == Falcon-9* ]]; then
+if [[ `hostname` == Falcon-10* ]]; then
     # ================================================================================
     # Change command line prompt into a penis with length proportional to the
     # distance from root
@@ -85,3 +85,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+function  pcl_viewer
+{
+    /usr/local/bin/pcl_viewer.app/Contents/MacOS/pcl_viewer $@ -use_point_picking
+}
+
+export  CCACHE_DIR=/Users/rasmus/.ccache
