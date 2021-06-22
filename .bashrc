@@ -1,4 +1,3 @@
-
 case "$OSTYPE" in
   darwin*)  source ~/.macrc ;;
   linux*)   source ~/.ubunturc ;;
@@ -175,9 +174,10 @@ if [ ! -z "$PS1" ]; then
     # To simplify javadoc generation
     alias javadoc='find ./src -name *.java > ./sources_list.txt;javadoc -author -version -d doc @sources_list.txt; rm -f ./sources_list.txt'
 
+    alias bake=make
     try_make () {
         case "$OSTYPE" in
-          darwin*)  say -v Anna "Der Kompilates beginnt";;
+          darwin*)  osascript -e 'display notification "Beginn" with title "Kompilates"';;
           linux*)   spd-say "Start compile" ;;
         esac &
 
@@ -185,16 +185,17 @@ if [ ! -z "$PS1" ]; then
         res=$?
         if [[ $res -eq 0 ]]; then
             case "$OSTYPE" in
-              darwin*)  say -v Anna "Erfolg" & osascript -e 'display notification "Erfolg" with title "Kompilates"';;
+              darwin*)  osascript -e 'display notification "Erfolg" with title "Kompilates"';;
               linux*)   spd-say "Success" ;;
             esac
         else
             case "$OSTYPE" in
-              darwin*)  say -v Anna "Misserfolg" & osascript -e 'display notification "Misserfolg" with title "Kompilates"';;
+              darwin*)  osascript -e 'display notification "Misserfolg" with title "Kompilates"';;
               linux*)   spd-say "Fail" ;;
             esac
         fi
     }
+    alias try_bake=try_make
 
     export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
 
