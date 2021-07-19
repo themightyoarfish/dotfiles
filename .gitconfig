@@ -27,6 +27,7 @@
     changes = "!git log --follow -p --"
     conflicting = "!git diff --name-only --diff-filter=U"
     cleanup = "!git branch --merged | grep -v -P '^\\*|master|develop' | xargs -n1 -r git branch -d"
+    schubs = push
 [core]
 	autocrlf = input
 [merge]
